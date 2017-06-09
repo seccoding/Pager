@@ -55,6 +55,6 @@ public class PagerTest {
 
 <pre>
 	&lt;form id="form"&gt;
-		${pager}
+		${pager} // page1 을 el로 표현
 	&lt;/form&gt;
 </pre>
