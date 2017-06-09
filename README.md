@@ -49,8 +49,8 @@ public class PagerTest {
 </pre>
 
 ### JSP
-> String page1 = pageExplorer1.getPagingList("pageNo", "[@]", "이전", "다음", "form");
-> page1 을 JSP 로 전송.
+> String page1 = pageExplorer1.getPagingList("pageNo", "[@]", "이전", "다음", "form");<br/>
+> page1 을 JSP 로 전송.<br/>
 > getPagingList메소드의 마지막 파라미터를 Form의 ID 로 사용.
 
 <pre>
