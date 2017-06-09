@@ -1,5 +1,5 @@
 # Pager
-Java &amp; JSP Pagenation 유틸리티
+Java &amp; JSP Pagination 유틸리티
 
 ## 사용 방법
 ### maven dependency에 Pager-1.0.0.jar 파일을 추가할 경우
