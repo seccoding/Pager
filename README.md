@@ -23,8 +23,6 @@ Java &amp; JSP Pagenation 유틸리티
 ---
 ## Pagenation 사용하기
 <pre>
-package io.github.seccoding.web.pager;
-
 import io.github.seccoding.web.pager.explorer.ClassicPageExplorer;
 import io.github.seccoding.web.pager.explorer.ListPageExplorer;
 
