@@ -22,6 +22,7 @@ Java &amp; JSP Pagenation 유틸리티
 1. Pager/src 이하의 자바코드를 본인의 Project에 붙혀넣습니다. 
 ---
 ## Pagenation 사용하기
+### Java (Servlet or Controller)
 <pre>
 import io.github.seccoding.web.pager.explorer.ClassicPageExplorer;
 import io.github.seccoding.web.pager.explorer.ListPageExplorer;
@@ -45,4 +46,15 @@ public class PagerTest {
 	}
 	
 }
+</pre>
+
+### JSP
+> String page1 = pageExplorer1.getPagingList("pageNo", "[@]", "이전", "다음", "form");
+> page1 을 JSP 로 전송.
+> getPagingList메소드의 마지막 파라미터를 Form의 ID 로 사용.
+
+<pre>
+	&lt;form id="form"&gt;
+		${pager}
+	&lt;/form&gt;
 </pre>
