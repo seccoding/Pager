@@ -54,7 +54,7 @@ public class PagerTest {
 > getPagingList메소드의 마지막 파라미터를 Form의 ID 로 사용.
 
 <pre>
-	&lt;form id="form"&gt;
-		${pager} // page1 을 el로 표현
-	&lt;/form&gt;
+&lt;form id="form"&gt;
+	${pager} // page1 을 el로 표현
+&lt;/form&gt;
 </pre>
