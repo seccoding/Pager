@@ -19,7 +19,7 @@ Java &amp; JSP Pagenation 유틸리티
 1. Pager/pom.xml의 dependencies를 본인의 Project/pom.xml 에 붙혀넣습니다.
 1. Pager/src 이하의 자바코드를 본인의 Project에 붙혀넣습니다. 
 ---
-## Pagenation 사용하기
+## Pagination 사용하기
 ### Java (Servlet or Controller)
 <pre>
 import io.github.seccoding.web.pager.explorer.ClassicPageExplorer;
