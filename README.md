@@ -53,8 +53,8 @@ public class PagerTest {
 > page1 을 JSP 로 전송.<br/>
 > getPagingList메소드의 마지막 파라미터를 Form의 ID 로 사용.
 
-<code>
+<pre>
 &lt;form id="form"&gt;
 	${pager} // page1 을 el로 표현
 &lt;/form&gt;
-</code>
+</pre>
