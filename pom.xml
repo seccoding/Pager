@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.seccoding</groupId>
   <artifactId>Pager</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <name>Pagenation Utility</name>
   <description>Pagenation Utility</description>
   <build>
@@ -11,8 +11,9 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
         <configuration>
-          <source/>
-          <target/>
+          <verbose>true</verbose>
+          <fork>true</fork>
+          <compilerVersion>1.8</compilerVersion>
         </configuration>
       </plugin>
     </plugins>
