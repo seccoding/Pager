@@ -35,46 +35,46 @@ public class PagerTest {
 		
 		// 기본 타입
 		String page1 = pager.makePageExplorer(ListPageExplorer.class)
-							.setData("pageNo", "[@]", "이전", "다음", "form")
-							.make();
+				    .setData("pageNo", "[@]", "이전", "다음", "form")
+				    .make();
 		// 기본 타입
 		String page2 = pager.makePageExplorer(ClassicPageExplorer.class)
-							.setData("pageNo", "[@]", "이전", "다음", "form")
-							.make();
+				    .setData("pageNo", "[@]", "이전", "다음", "form")
+				    .make();
 		
 		// UI 변경
 		String page3 = pager.makePageExplorer(ListPageExplorer.class)
-							.setData("pageNo", "[@]", "이전", "다음", "form")
-							.prevGroup((prevGroupPageNumber, prev) -> {
-								return "<div href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prev + "</div>";
-							})
-							.nextGroup((nextGroupPageNumber, next) -> {
-								return "<div href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + next + "</div>";
-							})
-							.pages((pageNo, pageFormat) -> {
-								return "<div onclick=\"javascript:movePage('" + pageNo + "')\">" + pageFormat + "</div>";
-							})
-							.highlight(pageNo -> {
-								return "<div>"+pageNo+"</div>";
-							})
-							.make();
+			.setData("pageNo", "[@]", "이전", "다음", "form")
+			.prevGroup((prevGroupPageNumber, prev) -> {
+			    return "<div href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prev + "</div>";
+			})
+			.nextGroup((nextGroupPageNumber, next) -> {
+			    return "<div href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + next + "</div>";
+			})
+			.pages((pageNo, pageFormat) -> {
+			    return "<div onclick=\"javascript:movePage('" + pageNo + "')\">" + pageFormat + "</div>";
+			})
+			.highlight(pageNo -> {
+			    return "<div>"+pageNo+"</div>";
+			})
+			.make();
 		
 		// UI 변경
 		String page4 = pager.makePageExplorer(ClassicPageExplorer.class)
-							.setData("pageNo", "[@]", "이전", "다음", "form")
-							.prevGroup((prevGroupPageNumber, prev) -> {
-								return "<div href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prev + "</div>";
-							})
-							.nextGroup((nextGroupPageNumber, next) -> {
-								return "<div href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + next + "</div>";
-							})
-							.pages((pageNo, pageFormat) -> {
-								return "<div onclick=\"javascript:movePage('" + pageNo + "')\">" + pageFormat + "</div>";
-							})
-							.highlight(pageNo -> {
-								return "<div>"+pageNo+"</div>";
-							})
-							.make();
+			.setData("pageNo", "[@]", "이전", "다음", "form")
+			.prevGroup((prevGroupPageNumber, prev) -> {
+			    return "<div href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prev + "</div>";
+			})
+			.nextGroup((nextGroupPageNumber, next) -> {
+			    return "<div href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + next + "</div>";
+			})
+			.pages((pageNo, pageFormat) -> {
+			    return "<div onclick=\"javascript:movePage('" + pageNo + "')\">" + pageFormat + "</div>";
+			})
+			.highlight(pageNo -> {
+			    return "<div>"+pageNo+"</div>";
+			})
+			.make();
 		
 		System.out.println(page1);
 		System.out.println(page2);
@@ -87,9 +87,9 @@ public class PagerTest {
 </pre>
 
 ### JSP
-> String pagenation = pager.makePageExplorer(ListPageExplorer.class)
-							.setData("pageNo", "[@]", "이전", "다음", "form")
-							.make();
+> String pagenation = pager.makePageExplorer(ListPageExplorer.class)<br/>
+			   .setData("pageNo", "[@]", "이전", "다음", "form")<br/>
+			   .make();
 > pagenation 을 JSP 로 전송.<br/>
 > setData메소드의 마지막 파라미터("form")를 Form의 ID 로 사용.
 
