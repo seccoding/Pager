@@ -42,7 +42,7 @@ Java &amp; JSP Pagination 유틸리티
    1. Download ZIP 을 클릭해 소스코드를 다운로드 받습니다.
    1. Pager/pom.xml의 dependencies를 본인의 Project/pom.xml 에 붙혀넣습니다.
    1. Pager/src 이하의 자바코드를 본인의 Project에 붙혀넣습니다. 
----
+
 ## Pagination 사용하기
 * Java (Servlet or Controller)  
   > 1. SampleCode 참고하세요.
