@@ -1,5 +1,6 @@
 package io.github.seccoding.web.pager.explorer;
 
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -7,7 +8,7 @@ import io.github.seccoding.web.pager.Pager;
 import io.github.seccoding.web.pager.decorator.Decorator;
 
 public abstract class PageExplorer {
-	
+
 	protected boolean isSetData;
 	protected Pager pager;
 	protected Decorator decorator;
@@ -22,7 +23,11 @@ public abstract class PageExplorer {
 	protected BiFunction<Integer, String, String> makePrevGroup;
 	protected BiFunction<Integer, String, String> makeNextGroup;
 	protected BiFunction<Integer, String, String> makePageLinks;
-	
+
+	public PageExplorer setData(PageOption pageOption) {
+		return setData(pageOption.link(), pageOption.pageFormat(), pageOption.prev(), pageOption.next(), pageOption.formId());
+	}
+
 	/**
 	 * JSP에서 Paging 결과를 보여준다.
 	 * @param link Page 번호를 전달할 Parameter Name
@@ -44,7 +49,7 @@ public abstract class PageExplorer {
 	
 	public String make() {
 		if ( !isSetData ) {
-			throw new RuntimeException("Data 셋팅이 필요합니다. setData(String link, String pageFormat, String prev, String next, String formId)를 먼저 수행하세요.");
+			setData(new PageOption());
 		}
 		
         StringBuffer buffer = decorator.makeForm(formId, link);
@@ -142,7 +147,19 @@ public abstract class PageExplorer {
 			return makeNextGroup.apply(nextGroupPageNumber, next);
 		}
 	}
-	
+
+	public List list;
+
+	public <T> PageExplorer setList(List<T> list) {
+		this.list = list;
+		return this;
+	}
+
+	public <T> List<T> getList() {
+		return list;
+	}
+
+
 }
 
 

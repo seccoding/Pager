@@ -2,6 +2,11 @@ package io.github.seccoding.web.pager;
 
 import io.github.seccoding.web.pager.explorer.ClassicPageExplorer;
 import io.github.seccoding.web.pager.explorer.ListPageExplorer;
+import io.github.seccoding.web.pager.explorer.PageExplorer;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class PagerTest {
 
@@ -58,6 +63,17 @@ public class PagerTest {
 		System.out.println(page2);
 		System.out.println(page3);
 		System.out.println(page4);
+
+		List<TestModel> data = Arrays.asList(new TestModel("JMC"), new TestModel("JMS"));
+
+		PageExplorer pageExplorer = pager.makePageExplorer(ClassicPageExplorer.class).setList(data);
+
+		List<TestModel> data2 = pageExplorer.getList();
+		data2.forEach(tm -> System.out.println(tm.getName()));
+
+		System.out.println(pageExplorer.setData("pageNo", "@", "P", "N", "F").make());
+
+
 		
 	}
 	
