@@ -3,6 +3,11 @@ Java &amp; JSP Pagination 유틸리티
 
 ## Release Note
 
+* 1.1.2 (2017.11.23)
+  * PageExplorer에 totalCount 추가
+    * PageExplorer.getTotalCount() 사용할 수 있음.
+  
+            
 * 1.1.1 (2017.11.23)
   * PageExplorer에 List 추가.
   * PageExplorer 와 List를 동시에 리턴해야 할 경우가 빈번해 PageExplorer에 List를 넣을 수 있도록 변경
@@ -18,6 +23,7 @@ Java &amp; JSP Pagination 유틸리티
       * 필요에 의해 PageExplorer.setData(pageOption) 으로 사용 가능.
         * 변경이 필요한 값만 셋팅할 수 있음.
   
+  
 * 1.1.0 (2017.11.22)
   * .getPagingList("pageNo", "[@]", "이전", "다음", "form") 삭제.
   * .setData("pageNo", "[@]", "이전", "다음", "form").make()로 대체됨.
@@ -27,24 +33,26 @@ Java &amp; JSP Pagination 유틸리티
     * PageExplorer.prevGroup(BiFunction<Integer, String, String> f)
     * PageExplorer.nextGroup(BiFunction<Integer, String, String> f)
     * PageExplorer.pages(BiFunction<Integer, String, String> f)
+  
     
 * 1.0.0 (2017.06.09)
   * 최초등록
 
+
 ## 개발중인 기능
-* (1.1.2) JSONPageExplorer
-* (1.1.2) XMLPageExplorer
+* (1.1.3) JSONPageExplorer
+* (1.1.3) XMLPageExplorer
 
 ## 사용 방법
-* maven dependency에 Pager-1.1.1.jar 파일을 추가할 경우 
+* maven dependency에 Pager-1.1.2.jar 파일을 추가할 경우 
    > (jdk 1.8 미만 버젼은 Pager-1.0.0.jar 를 사용하세요.)
-   1. Pager-1.1.1.jar파일을 C:\에 복사합니다.
-   1. Maven 명령어를 이용해 .m2 Repository 에 Pager-1.1.1.jar 를 설치(저장)합니다.<pre>mvn install:install-file -Dfile=C:\Pager-1.1.1.jar -DgroupId=io.github.seccoding -DartifactId=Pager -Dversion=1.1.1 -Dpackaging=jar</pre>
+   1. Pager-1.1.2.jar파일을 C:\에 복사합니다.
+   1. Maven 명령어를 이용해 .m2 Repository 에 Pager-1.1.2.jar 를 설치(저장)합니다.<pre>mvn install:install-file -Dfile=C:\Pager-1.1.2.jar -DgroupId=io.github.seccoding -DartifactId=Pager -Dversion=1.1.2 -Dpackaging=jar</pre>
    1. 본인의 Project/pom.xml 에 dependency를 추가합니다.<pre>
 	&lt;dependency&gt;
 	&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;io.github.seccoding&lt;/groupId&gt;
 	&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;Pager&lt;/artifactId&gt;
-	&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.1.1&lt;/version&gt;
+	&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.1.2&lt;/version&gt;
 	&lt;/dependency&gt;
 </pre>
 

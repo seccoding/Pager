@@ -24,6 +24,16 @@ public abstract class PageExplorer {
 	protected BiFunction<Integer, String, String> makeNextGroup;
 	protected BiFunction<Integer, String, String> makePageLinks;
 
+	private int totalCount;
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+
+	public int getTotalCount() {
+		return totalCount;
+	}
+
 	public PageExplorer setData(PageOption pageOption) {
 		return setData(pageOption.link(), pageOption.pageFormat(), pageOption.prev(), pageOption.next(), pageOption.formId());
 	}

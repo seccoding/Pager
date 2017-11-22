@@ -136,7 +136,10 @@ public abstract class Pager {
 	 */
 	public PageExplorer makePageExplorer(Class<? extends PageExplorer> cls) {
 		try {
-			return cls.getDeclaredConstructor(Pager.class).newInstance(this);
+			PageExplorer pageExplorer = cls.getDeclaredConstructor(Pager.class).newInstance(this);
+			pageExplorer.setTotalCount(this.totalArticleCount);
+
+			return pageExplorer;
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();

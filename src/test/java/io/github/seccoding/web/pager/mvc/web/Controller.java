@@ -20,6 +20,9 @@ public class Controller {
 
         List<TestModel> dataList = pageExplorer.getList();
 
+        int totalCount = pageExplorer.getTotalCount();
+        System.out.println(totalCount);
+
         // 기본 옵션
         // 기본 값은 "PageOption" 클래스 참고.
         String defaultPage = pageExplorer.make();
