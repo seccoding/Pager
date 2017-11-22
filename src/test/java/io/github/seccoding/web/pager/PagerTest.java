@@ -20,6 +20,7 @@ public class PagerTest {
 							.setData("pageNo", "[@]", "이전", "다음", "form")
 							.make();
 		
+		// UI 변경
 		String page3 = pager.makePageExplorer(ListPageExplorer.class)
 							.setData("pageNo", "[@]", "이전", "다음", "form")
 							.prevGroup((prevGroupPageNumber, prev) -> {
@@ -36,6 +37,7 @@ public class PagerTest {
 							})
 							.make();
 		
+		// UI 변경
 		String page4 = pager.makePageExplorer(ClassicPageExplorer.class)
 							.setData("pageNo", "[@]", "이전", "다음", "form")
 							.prevGroup((prevGroupPageNumber, prev) -> {

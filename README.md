@@ -29,28 +29,57 @@ public class PagerTest {
 
 	public static void main(String[] args) {
 		
-		// Oracle을 제외한 RDB가 처리하는 페이징 방법이 다르기 때문에, 현재 사용중인 RDB 를 작성합니다.
-		// Oracle을 사용할 경우 Pager.ORACLE
-		// Oracle을 제외한 RDB를 사용할 경우 Pager.OTHER 를 사용합니다.
 		Pager pager = PagerFactory.getPager(Pager.ORACLE);
 		pager.setPageNumber(17);
 		pager.setTotalArticleCount(220);
 		
-		// pager 는 startArticleNumber와 endArticleNumber를 계산합니다.
-		// Query 에서 페이징 쿼리를 작성할 때 사용합니다.
-		// 페이징 시작 번호
-		System.out.println(pager.getStartArticleNumber());
-		// 페이징 끝 번호(Oracle의 경우)
-		// 페이징 조회 개수(Oracle을 제외한 RDB의 경우)
-		System.out.println(pager.getEndArticleNumber());
+		// 기본 타입
+		String page1 = pager.makePageExplorer(ListPageExplorer.class)
+							.setData("pageNo", "[@]", "이전", "다음", "form")
+							.make();
+		// 기본 타입
+		String page2 = pager.makePageExplorer(ClassicPageExplorer.class)
+							.setData("pageNo", "[@]", "이전", "다음", "form")
+							.make();
 		
-		PageExplorer pageExplorer1 = new ListPageExplorer(pager);
-		String page1 = pageExplorer1.getPagingList("pageNo", "[@]", "이전", "다음", "form");
+		// UI 변경
+		String page3 = pager.makePageExplorer(ListPageExplorer.class)
+							.setData("pageNo", "[@]", "이전", "다음", "form")
+							.prevGroup((prevGroupPageNumber, prev) -> {
+								return "<div href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prev + "</div>";
+							})
+							.nextGroup((nextGroupPageNumber, next) -> {
+								return "<div href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + next + "</div>";
+							})
+							.pages((pageNo, pageFormat) -> {
+								return "<div onclick=\"javascript:movePage('" + pageNo + "')\">" + pageFormat + "</div>";
+							})
+							.highlight(pageNo -> {
+								return "<div>"+pageNo+"</div>";
+							})
+							.make();
+		
+		// UI 변경
+		String page4 = pager.makePageExplorer(ClassicPageExplorer.class)
+							.setData("pageNo", "[@]", "이전", "다음", "form")
+							.prevGroup((prevGroupPageNumber, prev) -> {
+								return "<div href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prev + "</div>";
+							})
+							.nextGroup((nextGroupPageNumber, next) -> {
+								return "<div href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + next + "</div>";
+							})
+							.pages((pageNo, pageFormat) -> {
+								return "<div onclick=\"javascript:movePage('" + pageNo + "')\">" + pageFormat + "</div>";
+							})
+							.highlight(pageNo -> {
+								return "<div>"+pageNo+"</div>";
+							})
+							.make();
+		
 		System.out.println(page1);
-		
-		PageExplorer pageExplorer2 = new ClassicPageExplorer(pager);
-		String page2 = pageExplorer2.getPagingList("pageNo", "[@]", "이전", "다음", "form");
 		System.out.println(page2);
+		System.out.println(page3);
+		System.out.println(page4);
 		
 	}
 	
@@ -58,12 +87,14 @@ public class PagerTest {
 </pre>
 
 ### JSP
-> String page1 = pageExplorer1.getPagingList("pageNo", "[@]", "이전", "다음", "form");<br/>
-> page1 을 JSP 로 전송.<br/>
-> getPagingList메소드의 마지막 파라미터를 Form의 ID 로 사용.
+> String pagenation = pager.makePageExplorer(ListPageExplorer.class)
+							.setData("pageNo", "[@]", "이전", "다음", "form")
+							.make();
+> pagenation 을 JSP 로 전송.<br/>
+> setData메소드의 마지막 파라미터("form")를 Form의 ID 로 사용.
 
 <pre>
 &lt;form id="form"&gt;
-	${pager} // page1 을 el로 표현
+	${pagenation} // pagenation 을 el로 표현
 &lt;/form&gt;
 </pre>
