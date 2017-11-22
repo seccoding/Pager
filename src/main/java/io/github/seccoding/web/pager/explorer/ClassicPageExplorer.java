@@ -13,7 +13,7 @@ public class ClassicPageExplorer extends PageExplorer {
 	protected String generate(StringBuffer pagenation) {
 
         if (pager.nowGroupNumber > 0) {
-        		pagenation.append(makePrevGroup(pager.prevGroupPageNumber));
+        	pagenation.append(makePrevGroup(pager.prevGroupPageNumber));
         }
 
         int nextPrintPage = pager.groupStartPage + pager.printPage;
@@ -25,17 +25,17 @@ public class ClassicPageExplorer extends PageExplorer {
 
         for (int i = pager.groupStartPage; i < nextPrintPage; i++) {
         		
-        		pageNumber = decorator.makePageNumber(pageFormat, i);
+        	pageNumber = decorator.makePageNumber(pageFormat, i);
             
             if ((i-1) == pager.pageNo) {
-            		pageNumber = makeHighlightNowPageNumber(pageNumber);
+            	pageNumber = makeHighlightNowPageNumber(pageNumber);
             }
             
             pagenation.append(makePageNumbers(i-1, pageNumber));
         }
 
         if (pager.nowGroupNumber < (pager.totalGroup - 1)) {
-        		pagenation.append(makeNextGroup(pager.nextGroupPageNumber));
+        	pagenation.append(makeNextGroup(pager.nextGroupPageNumber));
         }
 
         return pagenation.toString();
