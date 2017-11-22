@@ -82,3 +82,6 @@ Java &amp; JSP Pagination 유틸리티
 &nbsp;&nbsp;&nbsp;&nbsp;${pagenation} // pagenation 을 el로 표현
 &lt;/form&gt;
 </pre>
+
+* 영구적인 Pager UI 변경을 하려면 `io.github.seccoding.web.pager.decorator.Decorator.java` 내용을 수정하세요.
+  * https://github.com/seccoding/Pager/blob/master/src/main/java/io/github/seccoding/web/pager/decorator/Decorator.java
