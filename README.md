@@ -3,12 +3,12 @@ Java &amp; JSP Pagination 유틸리티
 
 ## Release Note
 
-* 1.1.1
+* 1.1.1 (2017.11.23)
   * PageExplorer에 List 추가.
   * PageExplorer 와 List를 동시에 리턴해야 할 경우가 빈번해 PageExplorer에 List를 넣을 수 있도록 변경
   * MVC 테스트 코드 추가.
   
-* 1.1.0
+* 1.1.0 (2017.11.22)
   * jdk 1.8 미만 버젼 지원 하지 않음.
   * Pager UI 변경 기능 추가
     * PageExplorer.highlight(Function<String, String> f)
@@ -16,7 +16,7 @@ Java &amp; JSP Pagination 유틸리티
     * PageExplorer.nextGroup(BiFunction<Integer, String, String> f)
     * PageExplorer.pages(BiFunction<Integer, String, String> f)
     
-* 1.0.0
+* 1.0.0 (2017.06.09)
   * 최초등록
 
 ## 개발중인 기능
