@@ -7,8 +7,20 @@ Java &amp; JSP Pagination 유틸리티
   * PageExplorer에 List 추가.
   * PageExplorer 와 List를 동시에 리턴해야 할 경우가 빈번해 PageExplorer에 List를 넣을 수 있도록 변경
   * MVC 테스트 코드 추가.
+  * PageOption 추가
+    * PageExplorer.setData() 사용없이 .make() 호출 가능.
+      * 기본값
+        * formId = "searchForm"
+        * link = "pageNo"
+        * pageFormat = "[@]"
+        * prev = "Prev"
+        * next = "Next"
+      * 필요에 의해 PageExplorer.setData(pageOption) 으로 사용 가능.
+        * 변경이 필요한 값만 셋팅할 수 있음.
   
 * 1.1.0 (2017.11.22)
+  * .getPagingList("pageNo", "[@]", "이전", "다음", "form") 삭제.
+  * .setData("pageNo", "[@]", "이전", "다음", "form").make()로 대체됨.
   * jdk 1.8 미만 버젼 지원 하지 않음.
   * Pager UI 변경 기능 추가
     * PageExplorer.highlight(Function<String, String> f)
@@ -40,8 +52,8 @@ Java &amp; JSP Pagination 유틸리티
    > (jdk 1.8 이상 해당, 그 이하 버젼은 지원하지 않습니다.)
    1. Clone or Download 를 클릭합니다.
    1. Download ZIP 을 클릭해 소스코드를 다운로드 받습니다.
-   1. Pager/pom.xml의 dependencies를 본인의 Project/pom.xml 에 붙혀넣습니다.
-   1. Pager/src 이하의 자바코드를 본인의 Project에 붙혀넣습니다. 
+   1. Pager/pom.xml의 dependencies를 본인의 Project/pom.xml 에 붙여넣습니다.
+   1. Pager/src 이하의 자바코드를 본인의 Project에 붙여넣습니다. 
 
 ## Pagination 사용하기
 * Java (Servlet or Controller)  
