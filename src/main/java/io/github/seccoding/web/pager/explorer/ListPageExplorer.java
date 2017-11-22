@@ -1,40 +1,17 @@
 package io.github.seccoding.web.pager.explorer;
 
-import io.github.seccoding.web.pager.PageExplorer;
 import io.github.seccoding.web.pager.Pager;
+import io.github.seccoding.web.pager.decorator.Decorator;
 
-public class ListPageExplorer implements PageExplorer {
+public class ListPageExplorer extends PageExplorer {
 
-	private Pager pager;
-	
 	public ListPageExplorer(Pager pager) {
 		this.pager = pager;
+		this.decorator = new Decorator();
 	}
 	
-	/**
-	 * JSP에서 Paging 결과를 보여준다.
-	 * getPagingList는 &lt;form> 태그 안에 작성되어야 한다.
-	 * @param link Page 번호를 전달할 Parameter Name
-	 * @param pageFormat Page 번호를 보여줄 패턴 @(at)가 페이지 번호로 치환된다. [@]로 작성할 경우 [1] [2] [3] 처럼 보여진다.
-	 * @param prev 이전 페이지 그룹으로 가는 버튼의 이름을 작성한다.
-	 * @param next 다음 페이지 그룹으로 가는 버튼의 이름을 작성한다.
-	 * @param formId 서버에게 전달될 Form 의 아이디를 작성한다.
-	 * @return
-	 */
-	public String getPagingList(String link, String pageFormat, String prev, String next, String formId) {
+	public String generate(StringBuffer pagenation) {
 
-		StringBuffer buffer = new StringBuffer();
-		buffer.append("<script>");
-		buffer.append("function movePage(pageNo) {");
-		buffer.append("document.getElementById('" + formId + "')." + link + ".value=pageNo;");
-		buffer.append("document.getElementById('" + formId + "').action='';");
-		buffer.append("document.getElementById('" + formId + "').method='post';");
-		buffer.append("document.getElementById('" + formId + "').submit();");
-		buffer.append("}");
-		buffer.append("</script>");
-		
-		buffer.append("<input type=\"hidden\" id=\""+link+"\" name=\""+link+"\" />");
-		
 		int centerPage = pager.printPage / 2;
 		int startPageNumber = pager.pageNo - centerPage;
 		if ( startPageNumber < 0 ) {
@@ -56,23 +33,23 @@ public class ListPageExplorer implements PageExplorer {
 		String pageNumber = "";
 		
 		if ( startPageNumber > 0 ) {
-			buffer.append("<a href=\"javascript:movePage('" + (pager.pageNo - 1) + "')\">" + prev + "</a>");
+			pagenation.append(makePrevGroup(pager.pageNo - 1));
 		}
 		
 		for (int i = startPageNumber; i < endPageNumber; i++) {
-			pageNumber = pageFormat.replaceAll("@", (i+1) + "");
+			pageNumber = decorator.makePageNumber(pageFormat, i+1);
 			if (i == pager.pageNo) {
-				pageNumber = "<b>" + pageNumber + "</b>";
+				pageNumber = makeHighlightNowPageNumber(pageNumber);
 			}
 			
-			buffer.append("<a class='page' href=\"javascript:movePage('" + i + "')\">" + pageNumber + "</a>");
+			pagenation.append(makePageNumbers(i, pageNumber));
 		}
 		
 		if ( pager.pageNo < endPageNumber-1 ) {
-			buffer.append("<a href=\"javascript:movePage('" + (pager.pageNo + 1) + "')\">" + next + "</a>");
+			pagenation.append(makeNextGroup(pager.pageNo+1));
 		}
 
-		return buffer.toString();
+		return pagenation.toString();
 	}
 	
 }

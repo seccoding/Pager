@@ -1,5 +1,9 @@
 package io.github.seccoding.web.pager;
 
+import java.lang.reflect.InvocationTargetException;
+
+import io.github.seccoding.web.pager.explorer.PageExplorer;
+
 public abstract class Pager {
 	
 	public static final boolean ORACLE = true;
@@ -121,4 +125,23 @@ public abstract class Pager {
 	 */
 	public abstract int getEndArticleNumber();
 	
+	/**
+	 * PageExplorer 만들기
+	 * @param cls
+	 * 		<ul>
+	 * 			<li>ClassicPageExplorer.class</li>
+	 * 			<li>ListPageExplorer.class</li>
+	 * 		</ul>
+	 * @return ClassicPageExplorer, ListPageExplorer
+	 */
+	public PageExplorer makePageExplorer(Class<? extends PageExplorer> cls) {
+		try {
+			return cls.getDeclaredConstructor(Pager.class).newInstance(this);
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException | NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
 }
