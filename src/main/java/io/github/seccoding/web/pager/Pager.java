@@ -1,7 +1,11 @@
 package io.github.seccoding.web.pager;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
+import io.github.seccoding.web.pager.annotations.EndRow;
+import io.github.seccoding.web.pager.annotations.StartRow;
 import io.github.seccoding.web.pager.explorer.PageExplorer;
 
 public abstract class Pager {
@@ -146,5 +150,45 @@ public abstract class Pager {
 		}
 
 		return null;
+	}
+
+	/**
+	 * PageExplorer 만들기
+	 * @param cls
+	 * 		<ul>
+	 * 			<li>ClassicPageExplorer.class</li>
+	 * 			<li>ListPageExplorer.class</li>
+	 * 		</ul>
+	 * @param searchObject
+	 *
+	 * @return ClassicPageExplorer, ListPageExplorer
+	 */
+	public PageExplorer makePageExplorer(Class<? extends PageExplorer> cls, Object searchObject) {
+		PageExplorer pageExplorer = makePageExplorer(cls);
+
+		Field[] fields = searchObject.getClass().getDeclaredFields();
+		for (Field field : fields) {
+			Annotation[] annotations = field.getDeclaredAnnotations();
+			for (Annotation annotation : annotations) {
+				if(annotation.annotationType() == EndRow.class) {
+					try {
+						field.setAccessible(true);
+						field.set(searchObject, this.getEndArticleNumber());
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				}
+				else if(annotation.annotationType() == StartRow.class) {
+					try {
+						field.setAccessible(true);
+						field.set(searchObject, this.getStartArticleNumber());
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+
+		return pageExplorer;
 	}
 }

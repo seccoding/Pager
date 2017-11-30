@@ -1,6 +1,7 @@
 package io.github.seccoding.web.pager.mvc.web;
 
 import io.github.seccoding.web.pager.TestModel;
+import io.github.seccoding.web.pager.TestSearchVO;
 import io.github.seccoding.web.pager.explorer.PageExplorer;
 import io.github.seccoding.web.pager.explorer.PageOption;
 import io.github.seccoding.web.pager.mvc.service.Service;
@@ -16,12 +17,16 @@ public class Controller {
     }
 
     public void viewPage() {
-        PageExplorer pageExplorer = service.getSomeData("0");
+
+        TestSearchVO testSearchVO = new TestSearchVO();
+        testSearchVO.setPageNo("0");
+
+        PageExplorer pageExplorer = service.getSomeData(testSearchVO);
 
         List<TestModel> dataList = pageExplorer.getList();
 
         int totalCount = pageExplorer.getTotalCount();
-        System.out.println(totalCount);
+        System.out.println("totalCount : " + totalCount);
 
         // 기본 옵션
         // 기본 값은 "PageOption" 클래스 참고.
@@ -36,7 +41,7 @@ public class Controller {
         String pageNavi = pageExplorer.setData(option).make();
 
         dataList.forEach(tm -> {
-            System.out.println(tm.getName());
+            System.out.println("Data : " + tm.getName());
         });
 
         System.out.println(pageNavi);
