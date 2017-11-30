@@ -3,6 +3,19 @@ Java &amp; JSP Pagination 유틸리티
 
 ## Release Note
 
+* 1.1.2.1 (2017.11.30)
+  * Pager
+    * makePageExplorer(Class<? extends PageExplorer> cls, Object searchObject) 추가
+  * Paging Query 를 위한 Annotation 추가
+    * https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/TestSearchVO.java
+    * EndRow
+    * StartRow
+  * Test case 추가
+    * PagerFactoryTest
+      * https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/PagerFactoryTest.java
+    * PagerTest
+      * https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/PagerTest.java
+
 * 1.1.2 (2017.11.23)
   * PageExplorer에 totalCount 추가
     * PageExplorer.getTotalCount() 사용할 수 있음.
@@ -44,15 +57,15 @@ Java &amp; JSP Pagination 유틸리티
 * (1.1.3) XMLPageExplorer
 
 ## 사용 방법
-* maven dependency에 Pager-1.1.2.jar 파일을 추가할 경우 
+* maven dependency에 Pager-1.1.2.1.jar 파일을 추가할 경우 
    > (jdk 1.8 미만 버젼은 Pager-1.0.0.jar 를 사용하세요.)
-   1. Pager-1.1.2.jar파일을 C:\에 복사합니다.
-   1. Maven 명령어를 이용해 .m2 Repository 에 Pager-1.1.2.jar 를 설치(저장)합니다.<pre>mvn install:install-file -Dfile=C:\Pager-1.1.2.jar -DgroupId=io.github.seccoding -DartifactId=Pager -Dversion=1.1.2 -Dpackaging=jar</pre>
+   1. Pager-1.1.2.1.jar파일을 C:\에 복사합니다.
+   1. Maven 명령어를 이용해 .m2 Repository 에 Pager-1.1.2.1.jar 를 설치(저장)합니다.<pre>mvn install:install-file -Dfile=C:\Pager-1.1.2.1jar -DgroupId=io.github.seccoding -DartifactId=Pager -Dversion=1.1.2 -Dpackaging=jar</pre>
    1. 본인의 Project/pom.xml 에 dependency를 추가합니다.<pre>
 	&lt;dependency&gt;
 	&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;io.github.seccoding&lt;/groupId&gt;
 	&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;Pager&lt;/artifactId&gt;
-	&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.1.2&lt;/version&gt;
+	&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.1.2.1&lt;/version&gt;
 	&lt;/dependency&gt;
 </pre>
 
@@ -64,9 +77,9 @@ Java &amp; JSP Pagination 유틸리티
    1. Pager/src 이하의 자바코드를 본인의 Project에 붙여넣습니다. 
 
 ## Pagination 사용하기
-* Java (Servlet or Controller)  
-  > 1. SampleCode 참고하세요.
-  > 1. https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/PagerTest.java
+* Java (Servlet or Controller)
+  > 1. PagerFactoryTest https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/PagerFactoryTest.java 
+  > 1. PagerTest https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/PagerTest.java
   > 1. (MVC::Controller) https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/mvc/web/Controller.java
   > 1. (MVC::Service) https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/mvc/service/Service.java
   > 1. (MVC::Dao) https://github.com/seccoding/Pager/blob/master/src/test/java/io/github/seccoding/web/pager/mvc/dao/Dao.java
