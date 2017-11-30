@@ -60,7 +60,7 @@ Java &amp; JSP Pagination 유틸리티
 * maven dependency에 Pager-1.1.2.1.jar 파일을 추가할 경우 
    > (jdk 1.8 미만 버젼은 Pager-1.0.0.jar 를 사용하세요.)
    1. Pager-1.1.2.1.jar파일을 C:\에 복사합니다.
-   1. Maven 명령어를 이용해 .m2 Repository 에 Pager-1.1.2.1.jar 를 설치(저장)합니다.<pre>mvn install:install-file -Dfile=C:\Pager-1.1.2.1jar -DgroupId=io.github.seccoding -DartifactId=Pager -Dversion=1.1.2 -Dpackaging=jar</pre>
+   1. Maven 명령어를 이용해 .m2 Repository 에 Pager-1.1.2.1.jar 를 설치(저장)합니다.<pre>mvn install:install-file -Dfile=C:\Pager-1.1.2.1jar -DgroupId=io.github.seccoding -DartifactId=Pager -Dversion=1.1.2.1 -Dpackaging=jar</pre>
    1. 본인의 Project/pom.xml 에 dependency를 추가합니다.<pre>
 	&lt;dependency&gt;
 	&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;io.github.seccoding&lt;/groupId&gt;
