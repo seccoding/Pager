@@ -57,29 +57,28 @@ Java &amp; JSP Pagination 유틸리티
 * (1.1.3) XMLPageExplorer
 
 ## 사용 방법
-* maven 사용
-   1. Repository 추가
-   <pre>
-   &lt;repositories>
-		&lt;repository>
-			&lt;id>bintray&lt;/id>
-			&lt;url>http://jcenter.bintray.com&lt;/url>
-			&lt;snapshots>
-				&lt;enabled>false&lt;/enabled>
-			&lt;/snapshots>
-		&lt;/repository>
-	&lt;/repositories>
-   </pre>
-   1. dependency 추가
-   <pre>
-   &lt;dependency>
-		&lt;groupId>io.github.seccoding&lt;/groupId>
-		&lt;artifactId>Pagination&lt;/artifactId>
-		&lt;version>1.1.2.1&lt;/version>
-	&lt;/dependency>
+### maven 사용
+1. Repository 추가<pre>
+   &lt;repositories&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;repository&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;id&gt;bintray&lt;/id&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;url&gt;http://jcenter.bintray.com</url&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;snapshots&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;enabled&gt;false&lt;/enabled&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/snapshots&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/repository&gt;
+&lt;/repositories&gt;
    </pre>
    
-* maven dependency에 Pager-1.1.2.1.jar 파일을 추가할 경우 
+1. dependency 추가<pre>
+   &lt;dependency&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;io.github.seccoding&lt;/groupId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;Excel&lt;/artifactId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.1.1&lt;/version&gt;
+	&lt;/dependency&gt;
+   </pre>
+   
+### maven dependency에 Pager-1.1.2.1.jar 파일을 추가할 경우 
    > jdk 1.8 미만 버젼 https://github.com/seccoding/Pager/tree/1.0.0
    1. Pager-1.1.2.1.jar파일을 C:\에 복사합니다.
    1. Maven 명령어를 이용해 .m2 Repository 에 Pager-1.1.2.1.jar 를 설치(저장)합니다.<pre>mvn install:install-file -Dfile=C:\Pager-1.1.2.1jar -DgroupId=io.github.seccoding -DartifactId=Pager -Dversion=1.1.2.1 -Dpackaging=jar</pre>
@@ -91,7 +90,7 @@ Java &amp; JSP Pagination 유틸리티
 	&lt;/dependency&gt;
 </pre>
 
-*  소스코드를 사용할 경우 
+### 소스코드를 사용할 경우 
    > jdk 1.8 미만 버젼 https://github.com/seccoding/Pager/tree/1.0.0
    1. Clone or Download 를 클릭합니다.
    1. Download ZIP 을 클릭해 소스코드를 다운로드 받습니다.
