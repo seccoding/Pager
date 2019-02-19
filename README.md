@@ -57,6 +57,28 @@ Java &amp; JSP Pagination 유틸리티
 * (1.1.3) XMLPageExplorer
 
 ## 사용 방법
+* maven 사용
+   1. Repository 추가
+   <pre>
+   &lt;repositories>
+		&lt;repository>
+			&lt;id>bintray&lt;/id>
+			&lt;url>http://jcenter.bintray.com&lt;/url>
+			&lt;snapshots>
+				&lt;enabled>false&lt;/enabled>
+			&lt;/snapshots>
+		&lt;/repository>
+	&lt;/repositories>
+   </pre>
+   1. dependency 추가
+   <pre>
+   &lt;dependency>
+		&lt;groupId>io.github.seccoding&lt;/groupId>
+		&lt;artifactId>Pagination&lt;/artifactId>
+		&lt;version>1.1.2.1&lt;/version>
+	&lt;/dependency>
+   </pre>
+   
 * maven dependency에 Pager-1.1.2.1.jar 파일을 추가할 경우 
    > jdk 1.8 미만 버젼 https://github.com/seccoding/Pager/tree/1.0.0
    1. Pager-1.1.2.1.jar파일을 C:\에 복사합니다.
