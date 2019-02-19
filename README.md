@@ -73,8 +73,8 @@ Java &amp; JSP Pagination 유틸리티
 1. dependency 추가<pre>
    &lt;dependency&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;io.github.seccoding&lt;/groupId&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;Excel&lt;/artifactId&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.1.1&lt;/version&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;Pagination&lt;/artifactId&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.1.2.1&lt;/version&gt;
 	&lt;/dependency&gt;
    </pre>
    
