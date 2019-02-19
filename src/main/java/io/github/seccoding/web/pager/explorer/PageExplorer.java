@@ -45,7 +45,7 @@ public abstract class PageExplorer {
 	 * @param prev 이전 페이지 그룹으로 가는 버튼의 이름을 작성한다.
 	 * @param next 다음 페이지 그룹으로 가는 버튼의 이름을 작성한다.
 	 * @param formId 서버에게 전달될 Form 의 아이디를 작성한다.
-	 * @return
+	 * @return PageExplorer
 	 */
 	public PageExplorer setData(String link, String pageFormat, String prev, String next, String formId) {
 		this.isSetData = true;
@@ -72,10 +72,10 @@ public abstract class PageExplorer {
 	/**
 	 * 현재 선택된 페이지 하이라이팅
 	 * <dl><dd>
-	 * "&lt;b>" + pageNo + "&lt;/b>"
+	 * "&lt;b&gt;" + pageNo + "&lt;/b&gt;"
 	 * </dd></dl>
 	 * @param f 1. 현재 선택된 페이지 번호(pageNo)
-	 * @return
+	 * @return PageExplorer
 	 */
 	public PageExplorer highlight(Function<String, String> f) {
 		this.makeHighlight = f;
@@ -83,12 +83,12 @@ public abstract class PageExplorer {
 	}
 	
 	/**
-	 * 이전 그룹/페이지로 이동하는 링크 만들기<br/>
+	 * 이전 그룹/페이지로 이동하는 링크 만들기
 	 * <dl><dd>
-	 * "&lt;a href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prev + "&lt;/a>";
+	 * "&lt;a href=\"javascript:movePage('" + prevGroupPageNumber + "')\"&gt;" + prev + "&lt;/a&gt;";
 	 * </dd></dl>
 	 * @param f 1. 이전 그룹번호/페이지 번호(prevGroupPageNumber), 2. 링크 명(prev)
-	 * @return
+	 * @return PageExplorer
 	 */
 	public PageExplorer prevGroup(BiFunction<Integer, String, String> f) {
 		this.makePrevGroup = f;
@@ -98,10 +98,10 @@ public abstract class PageExplorer {
 	/**
 	 * 다음 그룹/페이지로 이동하는 링크 만들기
 	 * <dl><dd>
-	 * "&lt;a href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + next + "&lt;/a>";
+	 * "&lt;a href=\"javascript:movePage('" + nextGroupPageNumber + "')\"&gt;" + next + "&lt;/a&gt;";
 	 * </dd></dl>
 	 * @param f 1. 다음 그룹번호/페이지 번호(nextGroupPageNumber) 2. 링크(next)
-	 * @return
+	 * @return PageExplorer
 	 */
 	public PageExplorer nextGroup(BiFunction<Integer, String, String> f) {
 		this.makeNextGroup = f;
@@ -111,10 +111,10 @@ public abstract class PageExplorer {
 	/**
 	 * 페이지 네비게이터 만들기(1,2,3,4,....)
 	 * <dl><dd>
-	 * "&lt;a href=\"javascript:movePage('" + pageNo + "')\">" + pageFormat + "&lt;/a>";
+	 * "&lt;a href=\"javascript:movePage('" + pageNo + "')\"&gt;" + pageFormat + "&lt;/a&gt;";
 	 * </dd></dl>
 	 * @param f 1. 페이지 번호(pageNo), 2. 페이지 포멧(pageFormat)
-	 * @return
+	 * @return PageExplorer
 	 */
 	public PageExplorer pages(BiFunction<Integer, String, String> f) {
 		this.makePageLinks = f;

@@ -57,7 +57,7 @@ public abstract class Pager {
 	 * 요청된 페이지의 번호를 얻어온다.
 	 * 1 페이지의 경우 0이 입력된다.
 	 * 아무것도 입력하지 않았다면 0으로 기본 설정된다.
-	 * @param pageNumber
+	 * @param pageNumber: 요청 페이지 번호
 	 */
 	public void setPageNumber(String pageNumber) {
 		this.pageNo = 0;
@@ -80,7 +80,7 @@ public abstract class Pager {
 	
 	/**
 	 * 조회하려는 조건(Query)의 총 게시물 수를 정의한다.
-	 * @param count
+	 * @param count: 총 게시물의 수
 	 */
 	public void setTotalArticleCount(int count) {
 		this.totalArticleCount = count;
@@ -93,7 +93,7 @@ public abstract class Pager {
 	
 	/**
 	 * 조회하려는 조건(Query)의 총 게시물 수를 가져온다.
-	 * @return
+	 * @return 총 게시물의 수
 	 */
 	public int getTotalArticleCount() {
 		return this.totalArticleCount;
@@ -102,30 +102,26 @@ public abstract class Pager {
 	/**
 	 * Query에서 사용될 탐색 시작 번호 
 	 * Oracle의 경우 rownum의 시작 번호
-	 * @return
+	 * @return startArticleNumber: 시작 번호
 	 */
 	public int getStartArticleNumber() {
 		return this.startArticleNumber;
 	}
 	
-	/**
-	 * Query에서 사용될 탐색 시작 번호를 정의한다.
-	 * @param startArticleNumber
-	 */
 	public void setStartArticleNumber(int startArticleNumber) {
 		this.startArticleNumber = startArticleNumber;
 	}
 	
 	/**
 	 * Query에서 사용될 탐색 끝 번호를 정의한다.
-	 * @param endArticleNumber
+	 * @param endArticleNumber: 끝 번호 셋팅
 	 */
 	public abstract void setEndArticleNumber(int endArticleNumber);
 
 	/**
 	 * Query에서 사용될 탐색 마지막 번호
 	 * Oracle의 경우 rownum의 마지막 번호
-	 * @return
+	 * @return 끝 번호
 	 */
 	public abstract int getEndArticleNumber();
 	
@@ -159,8 +155,7 @@ public abstract class Pager {
 	 * 			<li>ClassicPageExplorer.class</li>
 	 * 			<li>ListPageExplorer.class</li>
 	 * 		</ul>
-	 * @param searchObject
-	 *
+	 * @param searchObject: 검색 VO
 	 * @return ClassicPageExplorer, ListPageExplorer
 	 */
 	public PageExplorer makePageExplorer(Class<? extends PageExplorer> cls, Object searchObject) {
