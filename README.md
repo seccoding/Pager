@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/mcjang1116/io.github.seccoding/Pagination/images/download.svg?version=1.1.2.1) ](https://bintray.com/mcjang1116/io.github.seccoding/Pagination/1.1.2.1/link)
+
 # Pager
 Java &amp; JSP Pagination 유틸리티
 
