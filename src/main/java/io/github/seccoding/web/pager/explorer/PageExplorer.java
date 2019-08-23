@@ -1,5 +1,7 @@
 package io.github.seccoding.web.pager.explorer;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -158,15 +160,26 @@ public abstract class PageExplorer {
 		}
 	}
 
-	public List list;
+	public List<? extends Object> list;
 
-	public PageExplorer setList(List list) {
+	public PageExplorer setList(List<? extends Object> list) {
 		this.list = list;
 		return this;
 	}
 
-	public List getList() {
-		return list;
+	@SuppressWarnings("unchecked")
+	public <T> List<T> getList(Class<? extends Object> cls) {
+		
+		if ( this.list == null ) {
+			return new ArrayList<>();
+		}
+		
+		final List<T> result = new LinkedList<T>();
+		this.list.forEach(obj -> {
+			result.add((T) obj);
+		});
+		
+		return result;
 	}
 
 }

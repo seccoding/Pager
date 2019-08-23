@@ -202,7 +202,7 @@ public class PagerTest {
 		System.out.println("===============" + methodName + "===============");
 		System.out.println("PageExplorer Type " + pageExplorer.getClass().getSimpleName());
 		System.out.println("pageExplorer.getTotalCount() : " + pageExplorer.getTotalCount());
-		List<TestModel> list = pageExplorer.getList();
+		List<TestModel> list = pageExplorer.getList(TestModel.class);
 		if ( list != null ) {
 			list.forEach(testModel -> {
 				System.out.println("pageExplorer.getList() : " + testModel.getName());
@@ -217,7 +217,7 @@ public class PagerTest {
 		System.out.println("pageExplorer.getTotalCount() : " + pageExplorer.getTotalCount());
 		System.out.println("testSearchVO.getStartRow() : " + testSearchVO.getStartRow());
 		System.out.println("testSearchVO.getEndRow() : " + testSearchVO.getEndRow());
-		List<TestModel> list = pageExplorer.getList();
+		List<TestModel> list = pageExplorer.getList(TestModel.class);
 		if ( list != null ) {
 			list.forEach(testModel -> {
 				System.out.println("pageExplorer.getList() : " + testModel.getName());

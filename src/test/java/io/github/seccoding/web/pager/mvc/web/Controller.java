@@ -23,7 +23,7 @@ public class Controller {
 
         PageExplorer pageExplorer = service.getSomeData(testSearchVO);
 
-        List<TestModel> dataList = pageExplorer.getList();
+        List<TestModel> dataList = pageExplorer.getList(TestModel.class);
 
         int totalCount = pageExplorer.getTotalCount();
         System.out.println("totalCount : " + totalCount);
