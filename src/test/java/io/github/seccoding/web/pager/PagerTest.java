@@ -1,13 +1,12 @@
 package io.github.seccoding.web.pager;
 
+import java.util.Arrays;
+import java.util.List;
+
 import io.github.seccoding.web.pager.explorer.ClassicPageExplorer;
 import io.github.seccoding.web.pager.explorer.ListPageExplorer;
 import io.github.seccoding.web.pager.explorer.PageExplorer;
 import io.github.seccoding.web.pager.explorer.PageOption;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class PagerTest {
 

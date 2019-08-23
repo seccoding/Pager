@@ -27,15 +27,15 @@ public class Decorator {
 	}
 
 	public String makePrevGroup(int prevGroupPageNumber, String prevButtonName) {
-		return "<a href=\"javascript:movePage('" + prevGroupPageNumber + "')\">" + prevButtonName + "</a>";
+		return "<div onclick='javascript:movePage("+prevGroupPageNumber+")' class='prevPage'>"+prevButtonName+"</div>";
 	}
 
 	public String makeNextGroup(int nextGroupPageNumber, String nextButtonName) {
-		return "<a href=\"javascript:movePage('" + nextGroupPageNumber + "')\">" + nextButtonName + "</a>";
+		return "<div onclick='javascript:movePage("+nextGroupPageNumber+")' class='nextPage'>"+nextButtonName+"</div>";
 	}
 
 	public String makePageNumbers(int pageIndex, String pageNumber) {
-		return "<a href=\"javascript:movePage('" + pageIndex + "')\">" + pageNumber + "</a>";
+		return "<div onclick='javascript:movePage("+pageIndex+")' class='page'>"+pageNumber+"</div>";
 	}
 	
 }

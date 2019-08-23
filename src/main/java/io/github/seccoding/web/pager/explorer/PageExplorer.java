@@ -142,10 +142,10 @@ public abstract class PageExplorer {
 	
 	protected String makePageNumbers(int i, String pageNumber) {
 		if ( makePageLinks == null ) {
-	    		return decorator.makePageNumbers(i, pageNumber);
+	    	return decorator.makePageNumbers(i, pageNumber);
 	    }
 	    else {
-	    		return makePageLinks.apply(i, pageNumber);
+	    	return makePageLinks.apply(i, pageNumber);
 	    }
 	}
 	
@@ -160,15 +160,14 @@ public abstract class PageExplorer {
 
 	public List list;
 
-	public <T> PageExplorer setList(List<T> list) {
+	public PageExplorer setList(List list) {
 		this.list = list;
 		return this;
 	}
 
-	public <T> List<T> getList() {
+	public List getList() {
 		return list;
 	}
-
 
 }
 
